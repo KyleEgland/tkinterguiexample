@@ -16,12 +16,12 @@ class OtherTab(tk.Frame):
         # how to resize widgets when the window is resized
         # Weight affects how the item will be scaled in relation
         # to the other elements that are bing re-sized
-        # E.g. a row with weight 1 will scale more than a row with weight 2
+        # E.g. a row with weight 2 will scale more than a row with weight 1
         tk.Grid.rowconfigure(self, 0, weight=1)
-        tk.Grid.rowconfigure(self, 1, weight=2)
+        tk.Grid.rowconfigure(self, 1, weight=1)
 
         tk.Grid.columnconfigure(self, 0, weight=1)
-        tk.Grid.columnconfigure(self, 1, weight=2)
+        tk.Grid.columnconfigure(self, 1, weight=1)
 
         # Row 0
         # Two buttons
