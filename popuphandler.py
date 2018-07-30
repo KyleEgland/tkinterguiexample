@@ -148,33 +148,33 @@ class MessageBox(object):
         self.root.clipboard_append(self.msg)
 
 
-def mbox(msg, b1='OK', b2='Cancel', frame=True, t=False, entry=False,
-         dropbox=False, elements=None, win_title='Message'):
-    # Create an instance of MessageBox, and get data back from the user.
-    # msg = string to be displayed
-    # b1 = text for left button, or a tuple (<text for button>,
-    # <to return on press>)
-    # b2 = text for right button, or a tuple (<text for button>,
-    # <to return on press>)
-    # frame = include a standard outerframe: True or False
-    # t = time in seconds (int or float) until the msgbox automatically closes
-    # entry = include an entry widget that will have its contents returned:
-    # True or False
-    # dropbox = include a Combobox widget, choice will be returned: True or
-    # False
-    # elements  = items to be populated in dropbox: list
-    # win_title = title on the window
-
-    msgbox = MessageBox(msg, b1, b2, frame, t, entry, dropbox, elements,
-                        win_title)
-    msgbox.root.mainloop()
-    # the function pauses here until the mainloop is quit
-    msgbox.root.destroy()
-    return msgbox.returning
-
-
 # Tests - Run this file by itself to run the various tests below
 if __name__ == "__main__":
+
+    def mbox(msg, b1='OK', b2='Cancel', frame=True, t=False, entry=False,
+             dropbox=False, elements=None, win_title='Message'):
+        # Create an instance of MessageBox, and get data back from the user.
+        # msg = string to be displayed
+        # b1 = text for left button, or a tuple (<text for button>,
+        # <to return on press>)
+        # b2 = text for right button, or a tuple (<text for button>,
+        # <to return on press>)
+        # frame = include a standard outerframe: True or False
+        # t = time in seconds (int or float) until the msgbox automatically
+        #     closes
+        # entry = include an entry widget that will have its contents returned:
+        # True or False
+        # dropbox = include a Combobox widget, choice will be returned: True or
+        # False
+        # elements  = items to be populated in dropbox: list
+        # win_title = title on the window
+
+        msgbox = MessageBox(msg, b1, b2, frame, t, entry, dropbox, elements,
+                            win_title)
+        msgbox.root.mainloop()
+        # the function pauses here until the mainloop is quit
+        msgbox.root.destroy()
+        return msgbox.returning
 
     # define a function to be repeated at the end of every test that allows the
     # user to exit testing before it has finished.
