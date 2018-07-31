@@ -95,7 +95,7 @@ class MyApp(tk.Tk):
         # Add the pages to the Notebook; this order determines appearnce on
         # the window - it can be specified explicitely as well
         self.notebook.add(primary_tab, text='Main')
-        self.notebook.add(alt_tab, text='Alternate')
+        self.notebook.add(alt_tab, text='Text Entry')
         self.notebook.add(other_tab, text='Just Buttons')
 
         # Top menu bar (e.g. File, Edit, etc.)
