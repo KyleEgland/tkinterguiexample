@@ -23,7 +23,9 @@ class PrimaryTab(tk.Frame):
         tk.Grid.columnconfigure(self, 0, weight=1)
         tk.Grid.columnconfigure(self, 1, weight=1)
 
-        # Row 0
+        # ----- #
+        # ROW 0 #
+        # ----- #
         # A status
         # Labels are static text, they don't update unless you force them
         # This label displays the text noted in its instantiation line.
@@ -50,7 +52,9 @@ class PrimaryTab(tk.Frame):
         self.btn_click_status.grid(
             row=0, column=1, sticky='nsw', padx=5, pady=5)
 
-        # Row 1
+        # ----- #
+        # ROW 1 #
+        # ----- #
         # Buttons
         # There are tkinter buttons and ttk buttons.  The difference is that
         # the ttk buttons are a little more modern looking and adapt better
@@ -64,11 +68,16 @@ class PrimaryTab(tk.Frame):
         self.sub_btn = ttk.Button(self, text='-', command=self.sub_one)
         self.sub_btn.grid(row=1, column=1, sticky='ew', padx=5, pady=5)
 
+    # --------------------- #
+    # Primary Tab Functions #
+    # --------------------- #
+    # All functions within the class must reference "self" as the first arg
     def add_one(self):
-        # new_num = self.btn_click_num.get() + 1
-        # self.btn_click_num.set(new_num)
+        # Update the button click counter number by getting its current value
+        # and adding (1) to it.
         self.btn_click_num.set(self.btn_click_num.get() + 1)
 
     def sub_one(self):
-        new_num = self.btn_click_num.get() - 1
-        self.btn_click_num.set(new_num)
+        # Update the button click counter number by getting its current value
+        # and subtracting (1) from it
+        self.btn_click_num.set(self.btn_click_num.get() - 1)
