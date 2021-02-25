@@ -14,9 +14,9 @@ import os
 import sys
 # "Local" imports - files that were created and should be placed in the same
 # directory as this file.
-from primarytab import PrimaryTab
-from alternatetab import AlternateTab
-from thirdtab import OtherTab
+from MyExampleApp.PrimaryTab import PrimaryTab
+from MyExampleApp.alternatetab import AlternateTab
+from MyExampleApp.thirdtab import OtherTab
 
 
 # ------------ #
