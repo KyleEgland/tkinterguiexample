@@ -8,7 +8,7 @@ This project is a tabbed tkinter GUI intended to be a reference point for me (an
 
 ## Getting started
 
-Please feel free to fork this if you'd like to create your own application based upon this work.
+Running this application is as simple as cloning the repository and invoking `launch-application.py`!
 
 ## Credits and Resources
 
