@@ -4,6 +4,7 @@
 # Import information:
 # tkinter = GUI module, used to construt the GUI
 # ttk = tkinter styling, more GUI stuff
+import logging
 import tkinter as tk
 import tkinter.ttk as ttk
 
@@ -11,6 +12,8 @@ import tkinter.ttk as ttk
 class PrimaryTab(tk.Frame):
     # Initialization function
     def __init__(self, parent):
+        #  Instantiate logger
+        self.logger = logging.getLogger("app-logger.PrimaryTab")
         tk.Frame.__init__(self, parent)
         # The "rowconfigure" and "columnconfigure" tell the program
         # how to resize widgets when the window is resized
@@ -68,6 +71,8 @@ class PrimaryTab(tk.Frame):
         self.sub_btn = ttk.Button(self, text='-', command=self.sub_one)
         self.sub_btn.grid(row=1, column=1, sticky='ew', padx=5, pady=5)
 
+        self.logger.debug("PrimaryTab completed init...")
+
     # --------------------- #
     # Primary Tab Functions #
     # --------------------- #
@@ -76,8 +81,10 @@ class PrimaryTab(tk.Frame):
         # Update the button click counter number by getting its current value
         # and adding (1) to it.
         self.btn_click_num.set(self.btn_click_num.get() + 1)
+        self.logger.debug("One has been added...")
 
     def sub_one(self):
         # Update the button click counter number by getting its current value
         # and subtracting (1) from it
         self.btn_click_num.set(self.btn_click_num.get() - 1)
+        self.logger.debug("One has been subtracted...")

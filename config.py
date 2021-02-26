@@ -6,6 +6,7 @@
 # setup, establishing environment variables, etc. This is "general application"
 # level information - needed by most or multiple parts of the app.
 import logging
+import logging.config
 import os
 
 
@@ -18,31 +19,40 @@ basedir = os.getcwd()
 # requirement for its continuous modification - use the environment file to
 # dictate log levels or everything defaults to "development"/"DEBUG"
 LOGGING = {
-    # This is always 1, see Python's logging documentation for "why"
+    # version is always one, see Python logging documentation for details
     "version": 1,
-    # disable_existing_loggers does exactly that if set to True. While this
-    # would disable the root logger, setting this value to False seems to
-    # cause more problems than it solves.
+    # disable_existing_loggers will disable all other loggers if set to True;
+    # note
     "disable_existing_loggers": False,
     "formatters": {
-        "console": {
-            "format": "%(asctime)s %(name)s %(levelname)s: %(message)s"
+        # dev is the development log formatter
+        "default": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s [ %(filename)s ] Line: %(lineno)s "
+            "(%(levelname)s) %(name)s:  %(message)s",
+            "datefmt": "%H:%M:%S"
         }
     },
-    "hanlders": {
-        "console": {
-            "level": os.environ.get("CONSOLE_LOG_LEVEL") or "DEBUG",
+    "handlers": {
+        # dev is the handler used during development as it uses the most
+        #     verbose output
+        "default": {
             "class": "logging.StreamHandler",
-            "formatter": "console"
+            "level": "DEBUG",
+            "formatter": "default"
         }
     },
     "loggers": {
-        "App": {
-            "handlers": ["console"],
-            "level": os.environ.get("APP_LOG_LEVEL") or "DEBUG"
+        "app-logger": {
+            "handlers": ["default"],
+            "level": "DEBUG",
         }
     }
 }
+
+logging.config.dictConfig(LOGGING)
+logger = logging.getLogger("app-logger.settings")
+logger.debug("Settings is running...")
 
 
 class Config(object):
