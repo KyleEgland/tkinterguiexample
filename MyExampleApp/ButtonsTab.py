@@ -9,7 +9,7 @@ import tkinter.ttk as ttk
 from tkinter import messagebox as mb
 
 
-class OtherTab(tk.Frame):
+class ButtonsTab(tk.Frame):
     # Initialization function
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)

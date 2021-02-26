@@ -10,7 +10,7 @@ import tkinter.ttk as ttk
 # import tkinter.ttk as ttk
 
 
-class AlternateTab(tk.Frame):
+class TextEditorTab(tk.Frame):
     # Initilization function
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)

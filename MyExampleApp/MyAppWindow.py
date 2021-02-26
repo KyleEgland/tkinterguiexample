@@ -1,10 +1,11 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from MyExampleApp.PrimaryTab import PrimaryTab
-from MyExampleApp.alternatetab import AlternateTab
-from MyExampleApp.thirdtab import OtherTab
+from MyExampleApp.SecondaryTab import SecondaryTab
+from MyExampleApp.TextEditorTab import TextEditorTab
+from MyExampleApp.ButtonsTab import ButtonsTab
 
-class MyApp(tk.Tk):
+class MyAppWindow(tk.Tk):
     # MyApp is the class that represents the entire TKinter applications - it
     # contains all components of the GUI application
 
@@ -21,7 +22,7 @@ class MyApp(tk.Tk):
         tk.Tk.wm_title(self, self.Config.APP_NAME)
 
         # Create the Notebook widget that will contain the bulk of the app -
-        # the rest of the tabs
+        # all of the tabs
         self.notebook = ttk.Notebook(self)
 
         # Use pack geometry to fill window with the Notebook widget. Using pack
@@ -31,14 +32,16 @@ class MyApp(tk.Tk):
         # Instantiate Notebook pages, note that the order here determines load
         # order - this can be important depending on desired effect(s)
         primary_tab = PrimaryTab(self.notebook)
-        alt_tab = AlternateTab(self.notebook)
-        other_tab = OtherTab(self.notebook)
+        secondary_tab = SecondaryTab(self.notebook)
+        text_tab = TextEditorTab(self.notebook)
+        buttons_tab = ButtonsTab(self.notebook)
 
         # Add the pages to the Notebook; this order determines appearnce on
         # the window - it can be specified explicitely as well
         self.notebook.add(primary_tab, text='Primary Tab')
-        self.notebook.add(alt_tab, text='Text Entry')
-        self.notebook.add(other_tab, text='Just Buttons')
+        self.notebook.add(secondary_tab, text='Secondary Tab')
+        self.notebook.add(text_tab, text='Text Editor')
+        self.notebook.add(buttons_tab, text='Just Buttons')
 
         # Top menu bar (e.g. File, Edit, etc.)
         # Menu bar will be visible across all tabs as when it is placed here

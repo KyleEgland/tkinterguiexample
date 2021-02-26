@@ -10,7 +10,7 @@ import logging
 import os
 import sys
 # Local imports
-from MyExampleApp.mainwindow import MyApp
+from MyExampleApp.MyAppWindow import MyAppWindow
 from config import Config
 
 
@@ -18,6 +18,6 @@ def create_app(config_class=Config):
     # Borrowing from the Flask design idea of the application factory; this
     # function returns an application which will be invoked by the caller
 
-    app = MyApp(config_class)
+    app = MyAppWindow(config_class)
 
     return app
