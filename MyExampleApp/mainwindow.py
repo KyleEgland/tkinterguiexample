@@ -5,19 +5,27 @@ from MyExampleApp.alternatetab import AlternateTab
 from MyExampleApp.thirdtab import OtherTab
 
 class MyApp(tk.Tk):
+    # MyApp is the class that represents the entire TKinter applications - it
+    # contains all components of the GUI application
+
     def __init__(self, Config, *args, **kwargs):
+
         tk.Tk.__init__(self, *args, **kwargs)
+    
         # Application configuration information
         self.Config = Config()
+    
         # Give the window an icon (must be in dir desginated)
-        # tk.Tk.iconbitmap(self, default='icons/example_icon.ico')
+        tk.Tk.iconbitmap(self, default=self.Config.APP_ICON)
         # Give the window a title (displayed in title bar; top of window)
         tk.Tk.wm_title(self, self.Config.APP_NAME)
 
-        # Create the Notebook widget that will comprise the main part
-        # of the application
+        # Create the Notebook widget that will contain the bulk of the app -
+        # the rest of the tabs
         self.notebook = ttk.Notebook(self)
-        # Use pack geometry to fill window with the Notebook widget
+
+        # Use pack geometry to fill window with the Notebook widget. Using pack
+        # instead of grid because it should simply fill the whole space.
         self.notebook.pack(fill='both', expand=True)
 
         # Instantiate Notebook pages, note that the order here determines load
@@ -28,7 +36,7 @@ class MyApp(tk.Tk):
 
         # Add the pages to the Notebook; this order determines appearnce on
         # the window - it can be specified explicitely as well
-        self.notebook.add(primary_tab, text='Main')
+        self.notebook.add(primary_tab, text='Primary Tab')
         self.notebook.add(alt_tab, text='Text Entry')
         self.notebook.add(other_tab, text='Just Buttons')
 

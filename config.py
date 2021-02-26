@@ -9,6 +9,14 @@ import logging
 import os
 
 
+basedir = os.getcwd()
+
+
+# Logging will be done using the built-in Python logging module and will be
+# configured using the dictionary configuration method. The dictionary below
+# (LOGGING) also utilizes environment variables in order to lesson the
+# requirement for its continuous modification - use the environment file to
+# dictate log levels or everything defaults to "development"/"DEBUG"
 LOGGING = {
     # This is always 1, see Python's logging documentation for "why"
     "version": 1,
@@ -42,3 +50,4 @@ class Config(object):
         self.APP_ENV = os.environ.get("APP_ENV") or "development"
         self.APP_NAME = os.environ.get("APP_NAME") or "My Example App"
         self.APP_VERSION = os.environ.get("APP_VERSION") or "2.0.0"
+        self.APP_ICON = os.path.join(basedir, "icons/favicon.ico")
