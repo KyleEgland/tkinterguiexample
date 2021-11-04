@@ -1,10 +1,10 @@
-# tkinterguiexample
+# Tkinter GUI Example
 
-An example of how to create a GUI using TKinter (packaged with Python).
+An example Python application that utilizes the tkinter library to create a Graphical User Interface.
 
 ## Synopsis
 
-This project is a tabbed tkinter GUI intended to be a reference point for me (and others interested) to more efficiently create Python GUI applications. This is a personal project.
+This project is a tabbed, tkinter, GUI application intended to be a reference for future applications (e.g., a "starting point") and demonstrate my own learning. The intent of the application is to demontsrate as many capabilities of tkinter while utilizing some design patterns and practices.
 
 ## Getting started
 
@@ -12,7 +12,7 @@ Running this application is as simple as cloning the repository and invoking `la
 
 ## Current status
 
-- Restructured application to model it more closely to a modern Flask app
+- Restructured application to model it more closely resemble the application factory utilized by [Flask projects](https://flask.palletsprojects.com/en/2.0.x/patterns/appfactories/)
   - All Application code in subdirectory `MyExampleApp`
   - App is created via construction function in the `__init__.py` file
 - Added configuration object and established logging configuration
