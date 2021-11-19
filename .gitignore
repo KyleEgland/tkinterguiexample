@@ -102,3 +102,6 @@ ENV/
 
 # Ignore logging directory est by "my_logging_template.py"
 **/logs
+
+# Ignore vscode local config
+.vscode/
