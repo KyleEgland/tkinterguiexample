@@ -88,8 +88,13 @@ class MyAppWindow(tk.Tk):
         # Identify "menu_bar" as the menu for the application
         self.config(menu=menu_bar)
 
-        # Binding menu key combinations
-        self.notebook.bind('<Return>', self.new_thing)
+        # Binding menu key combinations - invokings a method in this manner
+        # will pass the function an event. This event is not needed in this
+        # instance so the "lambda event=None" calls the function without
+        # passing in the event.
+        self.bind("<Control-n>", lambda event=None: self.new_thing())
+        self.bind("<Control-l>", lambda event=None: self.load_thing())
+        self.bind("<Control-s>", lambda event=None: self.save_thing())
 
         self.logger.debug("...MyAppWindow __init__ complete")
 
