@@ -78,8 +78,14 @@ class Config(object):
         self.APP_VERSION = os.environ.get("APP_VERSION") or "0.1.1"
         self.logger.debug(f"APP_Version: {self.APP_VERSION}")
 
+        # Linux systems cannot process the .ico files; adding in a "name" check
+        # to properly set the APP_ICON value for the system being used
+        if os.name == "nt":
+            self.APP_ICON = os.path.join(
+                basedir, "MyExampleApp/src/icons/favicon.ico"
+            )
         self.APP_ICON = os.path.join(
-            basedir, "MyExampleApp/src/icons/favicon.ico"
+            "@", basedir, "MyExampleApp/src/icons/favicon.xbm"
         )
 
         self.logger.debug("...Config __init__ complete")

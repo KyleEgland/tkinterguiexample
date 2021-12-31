@@ -33,7 +33,10 @@ class MyAppWindow(tk.Tk):
         # Give the window an icon. This value is set by the APP_ICON attribute
         # of the Config class that was passed into the MyAppWindow upon
         # instantiation.
-        tk.Tk.iconbitmap(self, default=self.Config.APP_ICON)
+        # TODO: Fix app icon - there is an issue with nix systems (cannot use
+        # the .ico file)
+        # self.logger.debug(f"Iconbitmap: {self.Config.APP_ICON}")
+        # tk.Tk.iconbitmap(self, default=self.Config.APP_ICON)
 
         # Give the window a title; the string value will be displayed in title
         # bar (at the top of window).
